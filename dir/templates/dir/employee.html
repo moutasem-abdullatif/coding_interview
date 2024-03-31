@@ -13,7 +13,14 @@
 
   <body>
     <h1>Employees:</h1>
-
+    <input
+      type="text"
+      hx-get="/"
+      hx-trigger="change"
+      hx-target="#employees"
+      hx-push-url="true"
+      name="q"
+    />
     <table>
       <thead>
         <tr>
@@ -23,7 +30,7 @@
           <th>Is Active</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="employees">
         {% for emp in employees %}
         <tr>
           <td>{{emp.first_name}}</td>
